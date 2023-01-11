@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from '../src/context/ThemeContext';
 import { Navbar } from './components/Navbar';
-import Home from '../src/routes/Home'
-import Singin from '../src/routes/Singin'
-import Singup from '../src/routes/Singup'
-import Account from '../src/routes/Account'
+import Home from '../src/routes/Home';
+import Singin from '../src/routes/Singin';
+import Singup from '../src/routes/Singup';
+import Account from '../src/routes/Account';
+import CoinPage from './components/CoinPage';
 import { Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 
@@ -28,6 +29,9 @@ function App() {
         <Route path='/signin' element={<Singin />} />
         <Route path='/signup' element={<Singup />} />
         <Route path='/account' element={<Account />} />
+        <Route path='/coin/:coinId' element={<CoinPage />}>
+            <Route path=':coinId' />
+        </Route> 
       </Routes>
     </ThemeProvider>
   );
